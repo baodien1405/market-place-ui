@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-accent: 0, 159, 127;
+    --color-accent-hover: 1, 147, 118;
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
