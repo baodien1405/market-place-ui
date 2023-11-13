@@ -9,7 +9,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div>
       <Header />
-      <div className='mt-[84px] h-[calc(100vh-84px)]'>{children}</div>
+      <div className='mt-[84px]'>{children}</div>
       <Footer />
     </div>
   )
