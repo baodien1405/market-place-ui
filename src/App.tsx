@@ -1,10 +1,14 @@
+import { ConfigProvider } from 'antd'
 import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from '@/routes/AppRoutes'
+import { theme } from './utils'
 
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <ConfigProvider theme={theme}>
+        <AppRoutes />
+      </ConfigProvider>
     </BrowserRouter>
   )
 }

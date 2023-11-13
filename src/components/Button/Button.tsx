@@ -20,11 +20,11 @@ export interface ButtonProps {
 
 const classes = {
   root: 'inline-flex items-center justify-center flex-shrink-0 font-medium rounded-[6px] outline-none transition duration-300 ease-in-out focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700',
-  primary: 'bg-primary-500 text-white border border-transparent hover:bg-primary-400',
+  primary: 'bg-gradient-to-r from-[#DA458F] to-[#DA34DD] text-white border border-transparent',
   secondary: 'border border-primary-500 bg-transparent text-primary-500 hover:bg-primary-50',
   tertiary: 'border border-transparent text-primary-500 hover:text-primary-500 hover:bg-primary-50',
   small: 'px-4 py-1 h-7 text-sm',
-  middle: 'px-5 py-[10px] h-10 text-sm',
+  middle: 'px-5 py-2 h-10 text-sm',
   large: 'px-6 py-4 h-12 text-base'
 }
 
