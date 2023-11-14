@@ -6,5 +6,14 @@ export interface Product {
   product_slug: string
   product_price: number
   product_quantity: number
-  product_category: string
+  product_category: {
+    _id: string
+    category_name: string
+  }
+}
+
+export interface ProductPayload {
+  search: string
+  priceRange: number[]
+  price: 'asc' | 'desc'
 }

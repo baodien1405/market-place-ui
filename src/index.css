@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,5 +12,14 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+.cbd-top-menu-expanded {
+  @apply w-full block text-center absolute top-[47px] left-0  bg-white;
+}
+
+.cbd-bg-feature-product-list {
+  background-image: url('https://res.cloudinary.com/dktajq8sb/image/upload/v1699976993/market-place/feature-product-list-bg_rmpyt3.png');
+  background-position: center;
 }

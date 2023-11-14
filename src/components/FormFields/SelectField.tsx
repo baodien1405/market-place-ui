@@ -53,7 +53,7 @@ export function SelectField<T, K extends FieldValues>({
             {requiredIcon && <span className='text-error-500'>*</span>}
 
             <p
-              className={cn('flex items-start text-sm font-medium text-gray-900', {
+              className={cn('flex items-start text-sm font-medium text-white', {
                 'mb-[6px]': directionLabel === 'vertical'
               })}
             >

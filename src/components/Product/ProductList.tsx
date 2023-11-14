@@ -25,7 +25,7 @@ export function ProductList({ productList, loading }: ProductListProps) {
     <Row gutter={[40, 40]}>
       {productList.map((product) => (
         <Col key={product._id}>
-          <ProductCard />
+          <ProductCard product={product} />
         </Col>
       ))}
     </Row>
