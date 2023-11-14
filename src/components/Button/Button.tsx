@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, forwardRef } from 'react'
 import { Button as AntDesignButton } from 'antd'
 import cn from 'classnames'
 
@@ -23,56 +23,62 @@ const classes = {
   primary: 'bg-gradient-to-r from-[#DA458F] to-[#DA34DD] text-white border border-transparent',
   secondary: 'border border-primary-500 bg-transparent text-primary-500 hover:bg-primary-50',
   tertiary: 'border border-transparent text-primary-500 hover:text-primary-500 hover:bg-primary-50',
-  small: 'px-4 py-1 h-7 text-sm',
+  small: 'px-3 py-1 h-7 text-sm',
   middle: 'px-5 py-2 h-10 text-sm',
   large: 'px-6 py-4 h-12 text-base'
 }
 
-const Button = ({
-  htmlType,
-  loading,
-  disabled = false,
-  icon,
-  children,
-  className,
-  type = 'primary',
-  size = 'large',
-  href,
-  target,
-  id,
-  danger,
-  onClick
-}: ButtonProps) => {
-  const classesName = cn(
-    classes.root,
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
     {
-      [classes.primary]: !disabled && type === 'primary',
-      [classes.secondary]: !disabled && type === 'default',
-      [classes.tertiary]: !disabled && type === 'text',
-      [classes.small]: size === 'small',
-      [classes.middle]: size === 'middle',
-      [classes.large]: size === 'large'
+      htmlType,
+      loading,
+      disabled = false,
+      icon,
+      children,
+      className,
+      type = 'primary',
+      size = 'large',
+      href,
+      target,
+      id,
+      danger,
+      onClick
     },
-    className
-  )
+    ref
+  ) => {
+    const classesName = cn(
+      classes.root,
+      {
+        [classes.primary]: !disabled && type === 'primary',
+        [classes.secondary]: !disabled && type === 'default',
+        [classes.tertiary]: !disabled && type === 'text',
+        [classes.small]: size === 'small',
+        [classes.middle]: size === 'middle',
+        [classes.large]: size === 'large'
+      },
+      className
+    )
 
-  return (
-    <AntDesignButton
-      className={classesName}
-      type={type}
-      disabled={disabled}
-      htmlType={htmlType}
-      loading={loading}
-      icon={icon}
-      href={href}
-      target={target}
-      onClick={onClick}
-      id={id}
-      danger={danger}
-    >
-      {children}
-    </AntDesignButton>
-  )
-}
+    return (
+      <AntDesignButton
+        ref={ref}
+        className={classesName}
+        type={type}
+        disabled={disabled}
+        htmlType={htmlType}
+        loading={loading}
+        icon={icon}
+        href={href}
+        target={target}
+        onClick={onClick}
+        id={id}
+        danger={danger}
+      >
+        {children}
+      </AntDesignButton>
+    )
+  }
+)
 
 export default Button

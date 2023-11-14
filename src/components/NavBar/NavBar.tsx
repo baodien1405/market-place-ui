@@ -42,7 +42,7 @@ export default function NavBar() {
       >
         {MENU_LIST.map((item) => (
           <li key={item.page} className='py-[13px] hover:text-red-300 transition-colors uppercase'>
-            <Link to={`/${item.href}`}>{item.page}</Link>
+            <Link to={item.href}>{item.page}</Link>
           </li>
         ))}
       </ul>

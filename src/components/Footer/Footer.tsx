@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className='border-t-[1px] border-primary mt-auto bg-[#17161A]'>
-      <section className='container text-sm text-white'>
+      <section className='container text-sm text-white 2xl:px-0 px-[100px]'>
         <div className='mt-[60px] grid lg:grid-cols-3 gap-[180px]'>
           <div>
             <h4 className='uppercase text-[20px] leading-8 font-bold mb-8'>Navigation</h4>

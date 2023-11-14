@@ -13,7 +13,7 @@ export function ProductFilters() {
       <InputField
         name='search'
         control={control}
-        classNameInput='h-[40px] bg-transparent text-white placeholder-[#89888B]'
+        classNameInput='h-[40px] text-white placeholder-[#89888B]'
         classNameWrapper='mb-6'
         placeholder='Quick search'
         prefix={<SearchIcon />}

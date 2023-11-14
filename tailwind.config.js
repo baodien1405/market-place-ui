@@ -14,9 +14,9 @@ export default {
         '.container': {
           maxWidth: '1640px',
           marginLeft: 'auto',
-          marginRight: 'auto',
-          paddingLeft: '160px',
-          paddingRight: '160px'
+          marginRight: 'auto'
+          // paddingLeft: '160px',
+          // paddingRight: '160px'
         }
       })
       addComponents({

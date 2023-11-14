@@ -1,0 +1,4 @@
+export const QueryKeys = {
+  GET_CATEGORY_LIST: 'GET_CATEGORY_LIST',
+  GET_PRODUCT_LIST: 'GET_PRODUCT_LIST'
+}
