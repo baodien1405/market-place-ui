@@ -1,12 +1,12 @@
 import { useInView } from 'react-intersection-observer'
 import { useNavigate, createSearchParams } from 'react-router-dom'
+import { Col, Row } from 'antd'
 
 import { ProductCategories, ProductFilters, ProductList } from '@/components/Product'
 import { ListParams, ListResponse, Product, ProductPayload, SuccessResponse } from '@/models'
 import { useProductListInfinite, useQueryParams } from '@/hooks'
 import Button from '@/components/Button'
 import { path } from '@/constants'
-import { Col, Row } from 'antd'
 
 export function FeatureProducts() {
   const navigate = useNavigate()
@@ -15,6 +15,12 @@ export function FeatureProducts() {
     page: 1,
     limit: 9,
     ...queryParams
+  }
+
+  const initFiltersPayload: ProductPayload = {
+    search: filters.search || '',
+    priceRange: [Number(filters.price_min || 20), Number(filters.price_max || 100)],
+    price: 'asc'
   }
 
   const { data, isLoading, isValidating, setSize } = useProductListInfinite({
@@ -62,7 +68,7 @@ export function FeatureProducts() {
       <div className='py-[120px] container 2xl:px-0 px-10 md:px-[100px]'>
         <Row gutter={[40, 40]}>
           <Col span={7} xs={24} lg={7}>
-            <ProductFilters onSubmit={handleFiltersChange} />
+            <ProductFilters initialValues={initFiltersPayload} onSubmit={handleFiltersChange} />
           </Col>
 
           <Col span={17} xs={24} lg={17}>
@@ -72,13 +78,7 @@ export function FeatureProducts() {
 
             {showLoadMore && (
               <div className='text-center mt-8'>
-                <Button
-                  ref={ref}
-                  size='middle'
-                  loading={loadingMore}
-                  disabled={loadingMore}
-                  onClick={() => setSize((x) => x + 1)}
-                >
+                <Button ref={ref} size='middle' loading={loadingMore} onClick={() => setSize((x) => x + 1)}>
                   View more
                 </Button>
               </div>
