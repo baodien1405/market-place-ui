@@ -1,8 +1,10 @@
+import { createSearchParams, useNavigate } from 'react-router-dom'
+import { Skeleton } from 'antd'
+import cn from 'classnames'
+
 import Button from '@/components/Button'
 import { path } from '@/constants'
 import { useCategoryList, useQueryParams } from '@/hooks'
-import { Skeleton } from 'antd'
-import { createSearchParams, useNavigate } from 'react-router-dom'
 
 export function ProductCategories() {
   const navigate = useNavigate()
@@ -31,6 +33,10 @@ export function ProductCategories() {
         <Button
           key={category._id}
           size='middle'
+          className={cn({
+            'opacity-40': category._id !== queryParams.category,
+            'opacity-100': category._id === queryParams.category
+          })}
           onClick={() =>
             navigate({
               pathname: path.home,
