@@ -1,12 +1,13 @@
 import { useInView } from 'react-intersection-observer'
 import { useNavigate, createSearchParams } from 'react-router-dom'
 import { Col, Row } from 'antd'
+import { useEffect } from 'react'
 
 import { ProductCategories, ProductFilters, ProductList } from '@/components/Product'
 import { ListParams, ListResponse, Product, ProductPayload, SuccessResponse } from '@/models'
 import { useProductListInfinite, useQueryParams } from '@/hooks'
 import Button from '@/components/Button'
-import { path } from '@/constants'
+import { REFRESH_TIME, path } from '@/constants'
 
 export function FeatureProducts() {
   const navigate = useNavigate()
@@ -23,12 +24,24 @@ export function FeatureProducts() {
     price: 'asc'
   }
 
-  const { data, isLoading, isValidating, setSize } = useProductListInfinite({
+  const { data, mutate, isLoading, isValidating, setSize } = useProductListInfinite({
     params: filters,
     options: {
       revalidateOnFocus: false
+      // refreshInterval: REFRESH_TIME // this option does not work
     }
   })
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      mutate()
+    }, REFRESH_TIME)
+
+    return () => {
+      clearInterval(interval)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const { ref } = useInView({
     onChange(inView) {
