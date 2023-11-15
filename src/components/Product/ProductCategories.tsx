@@ -1,12 +1,18 @@
 import Button from '@/components/Button'
 import { path } from '@/constants'
-import { useCategoryList } from '@/hooks'
+import { useCategoryList, useQueryParams } from '@/hooks'
 import { Skeleton } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import { createSearchParams, useNavigate } from 'react-router-dom'
 
 export function ProductCategories() {
   const navigate = useNavigate()
-  const { data, isLoading } = useCategoryList({})
+  const queryParams = useQueryParams()
+
+  const { data, isLoading } = useCategoryList({
+    options: {
+      revalidateOnFocus: false
+    }
+  })
   const categoryList = data?.metadata || []
 
   if (isLoading) {
@@ -22,7 +28,19 @@ export function ProductCategories() {
   return (
     <div className='overflow-x-auto flex items-center gap-6 w-full mb-10'>
       {categoryList.map((category) => (
-        <Button key={category._id} size='middle' onClick={() => navigate(`${path.home}?category=${category._id}`)}>
+        <Button
+          key={category._id}
+          size='middle'
+          onClick={() =>
+            navigate({
+              pathname: path.home,
+              search: createSearchParams({
+                ...queryParams,
+                category: category._id
+              }).toString()
+            })
+          }
+        >
           {category.category_name}
         </Button>
       ))}
