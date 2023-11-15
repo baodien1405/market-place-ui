@@ -50,6 +50,7 @@ export function FeatureProducts() {
 
   const handleFiltersChange = ({ search, priceRange, price }: ProductPayload) => {
     const [price_min, price_max] = priceRange
+    setSize(1)
     navigate({
       pathname: path.home,
       search: createSearchParams({
