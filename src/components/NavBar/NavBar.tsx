@@ -47,7 +47,7 @@ export default function NavBar() {
         ))}
       </ul>
 
-      <div className='lg:hidden flex items-center justify-end w-full'>
+      <div className='lg:hidden flex items-center justify-start w-full text-white'>
         <svg
           onClick={() => setIsOpenMenu((prev) => !prev)}
           xmlns='http://www.w3.org/2000/svg'

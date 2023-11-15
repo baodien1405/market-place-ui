@@ -6,6 +6,7 @@ import { ListParams, ListResponse, Product, ProductPayload, SuccessResponse } fr
 import { useProductListInfinite, useQueryParams } from '@/hooks'
 import Button from '@/components/Button'
 import { path } from '@/constants'
+import { Col, Row } from 'antd'
 
 export function FeatureProducts() {
   const navigate = useNavigate()
@@ -58,30 +59,32 @@ export function FeatureProducts() {
 
   return (
     <div className='cbd-bg-feature-product-list'>
-      <div className='flex gap-10 py-[120px] container 2xl:px-0 px-[100px]'>
-        <div className='w-[372px] flex-shrink-0'>
-          <ProductFilters onSubmit={handleFiltersChange} />
-        </div>
+      <div className='py-[120px] container 2xl:px-0 px-10 md:px-[100px]'>
+        <Row gutter={[40, 40]}>
+          <Col span={7} xs={24} lg={7}>
+            <ProductFilters onSubmit={handleFiltersChange} />
+          </Col>
 
-        <div className='w-[calc(100%-412px)]'>
-          <ProductCategories />
+          <Col span={17} xs={24} lg={17}>
+            <ProductCategories />
 
-          <ProductList productList={productList} loading={isLoading} />
+            <ProductList productList={productList} loading={isLoading} />
 
-          {showLoadMore && (
-            <div className='text-center mt-8'>
-              <Button
-                ref={ref}
-                size='middle'
-                loading={loadingMore}
-                disabled={loadingMore}
-                onClick={() => setSize((x) => x + 1)}
-              >
-                View more
-              </Button>
-            </div>
-          )}
-        </div>
+            {showLoadMore && (
+              <div className='text-center mt-8'>
+                <Button
+                  ref={ref}
+                  size='middle'
+                  loading={loadingMore}
+                  disabled={loadingMore}
+                  onClick={() => setSize((x) => x + 1)}
+                >
+                  View more
+                </Button>
+              </div>
+            )}
+          </Col>
+        </Row>
       </div>
     </div>
   )

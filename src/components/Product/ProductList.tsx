@@ -22,7 +22,7 @@ export function ProductList({ productList, loading }: ProductListProps) {
   }
 
   return (
-    <Row gutter={[40, 40]}>
+    <Row gutter={[40, 40]} justify='center'>
       {productList.map((product) => (
         <Col key={product._id}>
           <ProductCard product={product} />

@@ -16,7 +16,7 @@ body {
 }
 
 .cbd-top-menu-expanded {
-  @apply w-full block text-center absolute top-[47px] left-0  bg-white;
+  @apply w-screen block text-center absolute top-[47px] left-0 bg-[#17161A];
 }
 
 .cbd-bg-feature-product-list {

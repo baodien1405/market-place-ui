@@ -9,8 +9,8 @@ export default function Footer() {
 
   return (
     <footer className='border-t-[1px] border-primary mt-auto bg-[#17161A]'>
-      <section className='container text-sm text-white 2xl:px-0 px-[100px]'>
-        <div className='mt-[60px] grid lg:grid-cols-3 gap-[180px]'>
+      <section className='container text-sm text-white 2xl:px-0 px-10 md:px-[100px]'>
+        <div className='mt-[60px] grid lg:grid-cols-3 grid-cols-1 gap-20 lg:gap-[180px]'>
           <div>
             <h4 className='uppercase text-[20px] leading-8 font-bold mb-8'>Navigation</h4>
             <section className='grid grid-cols-3 gap-[35px]'>
@@ -65,7 +65,7 @@ export default function Footer() {
 
         <div className='flex items-center justify-between pb-[208px]'>
           <div>©2023 Tyme - Edit. All Rights reserved.</div>
-          <div className='flex items-center gap-[60px] text-white'>
+          <div className='block lg:flex items-center gap-[60px] text-white'>
             <div>Security</div>
             <div>Legal</div>
             <div>Privacy</div>
