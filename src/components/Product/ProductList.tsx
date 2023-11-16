@@ -11,8 +11,8 @@ interface ProductListProps {
 export function ProductList({ productList, loading }: ProductListProps) {
   if (loading) {
     return (
-      <Row gutter={[40, 40]}>
-        {Array.from({ length: 6 }).map((_, index) => (
+      <Row gutter={[27, 27]}>
+        {Array.from({ length: 8 }).map((_, index) => (
           <Col key={index}>
             <ProductSkeleton />
           </Col>
@@ -22,7 +22,7 @@ export function ProductList({ productList, loading }: ProductListProps) {
   }
 
   return (
-    <Row gutter={[40, 40]} justify={{ xs: 'center', sm: 'center', md: 'start', lg: 'start', xl: 'start' }}>
+    <Row gutter={[27, 27]} justify={{ xs: 'center', sm: 'center', md: 'start', lg: 'start', xl: 'start' }}>
       {productList.map((product) => (
         <Col key={product._id}>
           <ProductCard product={product} />
