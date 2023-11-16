@@ -3,11 +3,12 @@ import { useRoutes } from 'react-router-dom'
 import { DefaultLayout, MainLayout } from '@/layouts'
 import NotFound from '@/pages/NotFound'
 import Home from '@/pages/Home'
+import { path } from '@/constants'
 
 export default function AppRoutes() {
   const routeElements = useRoutes([
     {
-      path: '',
+      path: path.home,
       index: true,
       element: (
         <MainLayout>
@@ -16,7 +17,7 @@ export default function AppRoutes() {
       )
     },
     {
-      path: '*',
+      path: path.notFound,
       element: (
         <DefaultLayout>
           <NotFound />

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { path } from '@/constants'
 
@@ -41,8 +41,11 @@ export default function NavBar() {
         } lg:flex lg:items-center md:gap-[26px] lg:gap-[60px] text-base text-white font-bold uppercase`}
       >
         {MENU_LIST.map((item) => (
-          <li key={item.page} className='py-[13px] hover:text-red-300 transition-colors uppercase'>
-            <Link to={item.href}>{item.page}</Link>
+          // <li key={item.page} className='py-[13px] hover:text-red-300 transition-colors uppercase'>
+          //   <NavLink to={item.href}>{item.page}</NavLink>
+          // </li>
+          <li key={item.page} className='cbd-top-menu-item'>
+            <NavLink to={item.href}>{item.page}</NavLink>
           </li>
         ))}
       </ul>

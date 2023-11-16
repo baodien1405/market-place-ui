@@ -29,8 +29,16 @@ body {
   background-color: #3a384199;
 }
 
+nav > ul > li > a.active {
+  @apply bg-gradient-to-r inline-block from-[#DA458F] to-[#DA34DD] text-transparent bg-clip-text;
+}
+
 .cbd-top-menu-expanded {
   @apply w-screen block text-center absolute top-[47px] left-0 bg-[#17161A];
+}
+
+.cbd-top-menu-item {
+  @apply cursor-pointer py-1 hover:text-[#DA458F]/80 relative after:lg:absolute after:lg:bottom-0 after:lg:left-0 after:lg:bg-gradient-to-r after:lg:from-[#DA458F] after:lg:to-[#DA34DD] after:lg:h-0.5 after:lg:w-0 hover:after:lg:w-full after:lg:transition-all after:lg:ease-in-out after:lg:duration-300;
 }
 
 .cbd-bg-feature-product-list {
